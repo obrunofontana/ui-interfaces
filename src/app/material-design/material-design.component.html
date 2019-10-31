@@ -1,68 +1,91 @@
 <div class="container" style="background-color: red;">
     <div class="card" style="background-color: #282828; color: wheat;">
         <div class="card-content">
-            <form></form>
-            <h5 class="center-align">Cadastro de pessoas</h5>
+            <form  #form="ngForm" (ngSubmit)="onSubmit(form)" novalidate>
+                <h5 class="center-align">Cadastro de pessoas</h5>
 
-            <mz-collapsible [mode]="'expandable'" [onClose]="closeFunctionCallback" [onOpen]="openFunctionCallback" [popout]="true">
-                <mz-collapsible-item [active]="true">
-                    <mz-collapsible-item-header>
-                        <i class="fa fa-users"></i> Dados Pessoais
-                    </mz-collapsible-item-header>
-                    <mz-collapsible-item-body>
-                        <div class="row">
-                            <mz-input-container class="col s12 m6">
-                                <input mz-input name="name" type="text" [label]="'Nome'" lenght="60" [validate]="true" [(ngModel)]="p.name" />
+                <mz-collapsible [mode]="'expandable'" [onClose]="closeFunctionCallback" [onOpen]="openFunctionCallback"
+                    [popout]="true">
+                    <mz-collapsible-item [active]="true">
+                        <mz-collapsible-item-header>
+                            <i class="fa fa-users"></i> Dados Pessoais
+                        </mz-collapsible-item-header>
+                        <mz-collapsible-item-body>
+                            <div class="row">
+                                <mz-input-container class="col s12 m6">
+                                    <input mz-input name="name" type="text" [label]="'Nome'" lenght="60"
+                                        [validate]="true" [(ngModel)]="p.name"  mz-validation required                                      
+                                        
+                                    
+                                        />
 
-                            </mz-input-container>
-                            <mz-input-container class="col s12 m6">
-                                <input mz-input name="lastName" type="text" [label]="'Sobrenome'" lenght="60"  [(ngModel)]="p.lastName" />
-                            </mz-input-container>
-                        </div>
+                                        <!--input mz-input mz-validation required
+                                        name="name"
+                                        id="input-name"
+                                        formControlName="name"
+                                        type="text"
+                                        [errorMessageResource]="errorMessageResources.name"
+                                        [label]="'Nome'" 
+                                        [(ngModel)]="p.name"/-->
 
-                    </mz-collapsible-item-body>
-                </mz-collapsible-item>
+                                </mz-input-container>
+                                <mz-input-container class="col s12 m6">
+                                    <input mz-input name="lastName" type="text" [label]="'Sobrenome'" lenght="60"
+                                        [(ngModel)]="p.lastName"  mz-validation required />
+                                </mz-input-container>
+                            </div>
 
-                <!-- Endereço -->
-                <mz-collapsible-item [active]="true">
-                    <mz-collapsible-item-header>
-                        <i class="fa fa-warehouse    "></i>
-                        <span class="vertical-align-super">Endereço</span>
-                    </mz-collapsible-item-header>
-                    <mz-collapsible-item-body>
-                        <div class="row">
-                            <mz-select-container class="col s12 m6">
-                                <select mz-select id="cidade" [label]="'Cidade'">
+                        </mz-collapsible-item-body>
+                    </mz-collapsible-item>
+
+                    <!-- Endereço -->
+                    <mz-collapsible-item [active]="true">
+                        <mz-collapsible-item-header>
+                            <i class="fa fa-map"></i> Endereço
+                        </mz-collapsible-item-header>
+                        <mz-collapsible-item-body>
+                            <div class="row">
+                                <mz-select-container class="col s12 m6">
+                                    <select name="city" mz-select id="cidade" [label]="'Cidade'" [(ngModel)]="p.city" mz-validation required>
                                         <option>Dois Vizinhos</option>
                                         <option>Francisco Beltrão</option>
                                         <option>Pato Branco</option>
                                     </select>
-                            </mz-select-container>
-                            <mz-select-container class="col s12 m6">
-                                <select mz-select id="bairro" [label]="'Bairro'">
+                                </mz-select-container>
+                                <mz-select-container class="col s12 m6">
+                                    <select name="neighborhood" mz-select id="bairro" [label]="'Bairro'" mz-validation required 
+                                        [(ngModel)]="p.neighborhood">
                                         <option>Centro</option>
-                                     </select>
+                                        <option>Fraron</option>
+                                        <option>Alto da Gloria</option>
+                                        <option>La Salle</option>
+                                    </select>
 
-                            </mz-select-container>
-                        </div>
-                    </mz-collapsible-item-body>
-                </mz-collapsible-item>
+                                </mz-select-container>
+                            </div>
+                        </mz-collapsible-item-body>
+                    </mz-collapsible-item>
 
-                <!-- Observação -->
-                <mz-collapsible-item [active]="true">
-                    <mz-collapsible-item-header>
-
-                        <span class="vertical-align-super">Observações</span>
-                    </mz-collapsible-item-header>
-                    <mz-collapsible-item-body>
-                        <mz-textarea-container>
-                            <textarea mz-textarea [label]="'Observações'" id="observacao" lenght="500">
+                    <!-- Observação -->
+                    <mz-collapsible-item [active]="true">
+                        <mz-collapsible-item-header>
+                            <i class="fa fa-comment"></i>
+                            Observações
+                        </mz-collapsible-item-header>
+                        <mz-collapsible-item-body>
+                            <mz-textarea-container>
+                                <textarea name="obs" mz-textarea [label]="'Observações'" id="observacao" lenght="500"
+                                    [(ngModel)]="p.obs">
                         </textarea>
-                        </mz-textarea-container>
-                    </mz-collapsible-item-body>
-                </mz-collapsible-item>
-                <button (click)="save()">Salvar</button>
-            </mz-collapsible>
+                            </mz-textarea-container>
+                        </mz-collapsible-item-body>
+                    </mz-collapsible-item>
+                    <!-- (click)="save()" -->                 
+                </mz-collapsible>
+                <button class="green "  [disabled]="form.invalid"  type="submit" mz-button>
+                    Salvar
+                </button>
+            </form>
         </div>
     </div>
 </div>

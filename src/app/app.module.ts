@@ -4,7 +4,16 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialDesignComponent } from './material-design/material-design.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LocalStorageModule } from 'angular-2-local-storage';
+
+import {
+  NgForm,
+  FormGroup,
+  FormControl,
+  Validators,
+  FormBuilder
+} from '@angular/forms'
 
 import {
   MzInputModule,
@@ -14,7 +23,9 @@ import {
   MzSelectModule,
   MzCollapsibleModule,
   MzTextareaModule,
-  
+  MzValidationModule,
+
+
 } from 'ngx-materialize'
 
 
@@ -34,7 +45,12 @@ import {
     MzSelectModule,
     MzCollapsibleModule,
     MzTextareaModule,
-    FormsModule
+    FormsModule,
+    LocalStorageModule.forRoot({
+      storageType: 'localStorage'
+    }),
+    MzValidationModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
