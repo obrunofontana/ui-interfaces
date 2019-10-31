@@ -2,6 +2,7 @@ import { Component, OnInit, Renderer } from '@angular/core';
 import { People } from '../models/people';
 import { PeopleService } from '../services/people.service';
 import { NgForm, FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormControl } from '@angular/forms';
+import { MzToastService } from 'ngx-materialize';
 
 
 @Component({
@@ -35,12 +36,11 @@ export class MaterialDesignComponent implements OnInit {
 
   
 
-  constructor(private peopleService: PeopleService, private formBuilder: FormBuilder, private renderer: Renderer) { }
+  constructor(private peopleService: PeopleService, private formBuilder: FormBuilder, private renderer: Renderer, 
+    private toastService: MzToastService) { }
 
   ngOnInit() {
-    this.p = new People();
-    this.p.name = "";
-    this.p.lastName = ""
+    this.p = new People();    
     this.buildForm();
 
   }
@@ -52,10 +52,9 @@ export class MaterialDesignComponent implements OnInit {
 
     this.peopleService.save(this.p);
 
-    alert("Registro Salvo com Sucesso!")
-
+    this.toastService.show('Registro salvo com sucesso', 3000, 'green', () =>  form.reset()  );
+    
     console.log(this.p);
-    form.reset(); //Limpa o formulario
 
   }
 

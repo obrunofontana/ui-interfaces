@@ -24,6 +24,7 @@ import {
   MzCollapsibleModule,
   MzTextareaModule,
   MzValidationModule,
+  MzToastModule,
 
 
 } from 'ngx-materialize'
@@ -51,6 +52,7 @@ import {
     }),
     MzValidationModule,
     ReactiveFormsModule,
+    MzToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]
