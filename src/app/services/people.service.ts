@@ -11,21 +11,22 @@ export class PeopleService {
 
   save(people: People) {
 
-    this.localStorage.set(people.id, people);
+    //this.localStorage.set(people.id, people);
 
 
 
-    /*-     // Pega a lista já cadastrada, se não houver vira um array vazio
+        // Pega a lista já cadastrada, se não houver vira um array vazio
           var contacts = JSON.parse(this.localStorage.get('contacts') || '[]');
     
           // Adiciona pessoa ao cadastro
           contacts.push({
+            id: new Date().getTime().toString(),
             name: people.name,
             lastName: people.lastName
           });
       
           // Salva a lista alterada
-          this.localStorage.set("contacts", JSON.stringify(contacts));*/
+          this.localStorage.set("contacts", JSON.stringify(contacts));
 
 
   }

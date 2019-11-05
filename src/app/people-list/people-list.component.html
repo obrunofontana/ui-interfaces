@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="card">
+        <div class="rigth-align">
+            <button mz-button>
+                Novo
+            </button>
+        </div>
+        <h5 class="center-align">
+            Lista de Pessoas
+        </h5>
+        <mz-collection>
+            <mz-collection-item *ngFor="let people of pList">
+                {{people.name}}
+                <a mz-secondary-content>
+                    aa
+                </a>
+            </mz-collection-item>
+        </mz-collection>
+    </div>
+</div>

@@ -24,16 +24,19 @@ import {
   MzCollapsibleModule,
   MzTextareaModule,
   MzValidationModule,
+  MzCollectionModule,
   MzToastModule,
 
 
-} from 'ngx-materialize'
+} from 'ngx-materialize';
+import { PeopleListComponent } from './people-list/people-list.component'
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MaterialDesignComponent,
+    PeopleListComponent,
 
   ],
   imports: [
@@ -47,6 +50,7 @@ import {
     MzCollapsibleModule,
     MzTextareaModule,
     FormsModule,
+    MzCollectionModule,
     LocalStorageModule.forRoot({
       storageType: 'localStorage'
     }),

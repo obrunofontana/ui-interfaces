@@ -1,3 +1,5 @@
+import { Genero } from './genero';
+
 export class People {
     id: string;
     name: string;
@@ -7,5 +9,6 @@ export class People {
     obs: string;
     city: string;
     neighborhood: string;
+    gen: Genero
 
 }

@@ -35,6 +35,20 @@
                                 </mz-input-container>
                             </div>
 
+                            <div class="row">
+                                <div class="col s6">
+                                    <mz-radio-button-container class="col s6 m4">
+                                        <input mz-radio-button [label]="'Masculino'" [withGap]="true" id="radio-button-id2"
+                                            name="radio-group" type="radio" value="Masculino" [(ngModel)]="p.gen">
+                                    </mz-radio-button-container>
+    
+                                    <mz-radio-button-container class="col s6 m4">
+                                        <input mz-radio-button [label]="'Feminino'" [withGap]="true" id="radio-button-id"
+                                            name="radio-group" type="radio" value="Feminino" [(ngModel)]="p.gen">
+                                    </mz-radio-button-container>
+                                </div>
+                            </div>
+
                         </mz-collapsible-item-body>
                     </mz-collapsible-item>
 
